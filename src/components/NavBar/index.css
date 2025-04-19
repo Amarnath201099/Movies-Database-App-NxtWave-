@@ -132,6 +132,10 @@
   .burger-icon {
     display: none;
   }
+  
+  .options-button-container{
+    display: none;
+  }
 
   .option-btn {
     font-size: 15px;

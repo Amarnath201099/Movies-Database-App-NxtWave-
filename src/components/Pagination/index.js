@@ -13,7 +13,7 @@ const Pagination = props => {
     if (isControlled) {
       setInternalPage(currentPage)
     }
-  }, [currentPage])
+  }, [currentPage, isControlled])
 
   const handlePrevious = () => {
     const pageToSet = isControlled ? currentPage : internalPage
