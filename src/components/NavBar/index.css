@@ -1,0 +1,139 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  background-color: #0f171e;
+  font-family: 'Roboto';
+}
+
+.logo-icon {
+  font-size: 20px;
+  margin: 0px;
+  color: #ffffff;
+}
+
+.icons-container {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.categories-container {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.categories-container li {
+  width: 100%;
+}
+
+.option-link {
+  text-decoration: none;
+}
+
+.option-btn {
+  background-color: transparent;
+  color: #ffffff;
+  width: 100%;
+  border: 0px;
+  padding: 8px;
+  text-align: left;
+  font-family: 'Roboto';
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: #0f171e;
+  padding: 0px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  padding: 3px;
+  margin-left: auto;
+  width: 40%;
+}
+
+.search-input-box {
+  width: 100%;
+  font-size: 10px;
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  color: #ffffff;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: 0px;
+  color: #ffffff;
+  padding: 0px;
+}
+
+.nav-menu.open {
+  display: flex;
+  width: 100%;
+}
+
+.burger-icon {
+  display: block;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    padding: 20px;
+  }
+
+  .logo-icon {
+    font-size: 25px;
+  }
+
+  .nav-menu {
+    display: flex !important; /* always show nav on desktop */
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .burger-icon {
+    display: none;
+  }
+
+  .option-btn {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .search-options-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-container {
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  .search-input-box {
+    font-size: 15px;
+  }
+
+  .categories-container {
+    width: 60%;
+  }
+}

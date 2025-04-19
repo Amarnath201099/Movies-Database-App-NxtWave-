@@ -1,0 +1,26 @@
+.pagination-container {
+  background-color: #0b121a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.pagination-btn {
+  padding: 5px;
+  width: 60px;
+  background-color: transparent;
+  border: 1.5px solid #ffffff;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 8px;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.page-no-style {
+  margin: 0px 15px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+}
