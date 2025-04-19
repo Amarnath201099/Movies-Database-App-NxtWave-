@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 15px;
+  padding: 10px 15px;
   background-color: #0f171e;
   font-family: 'Roboto';
 }
@@ -33,6 +33,20 @@
   text-decoration: none;
 }
 
+.options-button-container {
+  display: flex;
+}
+
+.options-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 11px;
+  border-radius: 3px;
+}
+
 .option-btn {
   background-color: transparent;
   color: #ffffff;
@@ -41,6 +55,8 @@
   padding: 8px;
   text-align: left;
   font-family: 'Roboto';
+  font-size: 15px;
+  margin: 5px 0px;
 }
 
 .nav-menu {
@@ -63,7 +79,8 @@
   border-radius: 3px;
   padding: 3px;
   margin-left: auto;
-  width: 40%;
+  width: 50%;
+  margin-right: 5px;
 }
 
 .search-input-box {
@@ -76,10 +93,12 @@
 }
 
 .search-btn {
-  background-color: transparent;
+  background-color: #ffffff;
   border: 0px;
-  color: #ffffff;
-  padding: 0px;
+  color: #000000;
+  padding: 2px;
+  font-size: 11px;
+  border-radius: 3px;
 }
 
 .nav-menu.open {

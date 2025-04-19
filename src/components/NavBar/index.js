@@ -1,6 +1,3 @@
-import {Sling as Hamburger} from 'hamburger-react'
-import {BiSearch} from 'react-icons/bi'
-
 import {useState} from 'react'
 import {withRouter, Link} from 'react-router-dom'
 
@@ -10,6 +7,10 @@ import './index.css'
 
 const NavBar = props => {
   const [isOpen, setOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setOpen(prevState => !prevState)
+  }
 
   const renderSearchBlock = () => (
     <SearchedMovieContext.Consumer>
@@ -31,7 +32,7 @@ const NavBar = props => {
           <div className="search-container">
             <input
               className="search-input-box"
-              type="search"
+              type="text"
               placeholder="Search"
               onChange={onChangeInput}
               value={searchInput}
@@ -41,7 +42,7 @@ const NavBar = props => {
               className="search-btn"
               onClick={updateSearchMovies}
             >
-              <BiSearch size={14} />
+              Search
             </button>
           </div>
         )
@@ -51,12 +52,14 @@ const NavBar = props => {
 
   return (
     <div className="navbar-container">
-      <h1 className="logo-icon">MoviesDB</h1>
+      <h1 className="logo-icon">movieDB</h1>
       <div className="search-options-container">
         <div className="icons-container">
           {renderSearchBlock()}
-          <div className="burger-icon">
-            <Hamburger toggled={isOpen} toggle={setOpen} size={16} />
+          <div className="options-button-container">
+            <button type="button" className="options-btn" onClick={toggleMenu}>
+              Categories
+            </button>
           </div>
         </div>
         <ul className={`categories-container nav-menu ${isOpen ? 'open' : ''}`}>
@@ -86,4 +89,5 @@ const NavBar = props => {
     </div>
   )
 }
+
 export default withRouter(NavBar)

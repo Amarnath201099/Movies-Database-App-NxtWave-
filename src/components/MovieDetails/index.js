@@ -1,8 +1,6 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 
-import {AiFillStar} from 'react-icons/ai'
-
 import NavBar from '../NavBar'
 
 import './index.css'
@@ -74,10 +72,7 @@ class MovieDetails extends Component {
         <div className="movie-details-container">
           <div className="movie-details-card">
             <h1 className="movie-details-name">{movieName}</h1>
-            <p className="movie-details-rating">
-              {movieRatings}
-              <AiFillStar />
-            </p>
+            <p className="movie-details-rating">Rating: {movieRatings}</p>
             <p>{movieDuation}mins</p>
             <p className="movie-details-genres">
               {movieGenersDetails.join(',\u200B')}

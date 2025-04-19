@@ -25,7 +25,7 @@ class Popular extends Component {
 
     const updatedFormatData = data.results.map(eachMovie => ({
       movieId: eachMovie.id,
-      moviePosterImage: `https://image.tmdb.org/t/p/w500/${eachMovie.poster_path}`,
+      moviePosterPath: `https://image.tmdb.org/t/p/w500/${eachMovie.poster_path}`,
       movieTitle: eachMovie.original_title,
       movieVoteAverage: eachMovie.vote_average,
     }))

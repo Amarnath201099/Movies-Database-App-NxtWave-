@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Loader from 'react-loader-spinner'
 
 import NavBar from '../NavBar'
@@ -7,51 +8,67 @@ import SearchedMovieContext from '../../context/SearchedMovieContext'
 
 import './index.css'
 
-const SearchedMovies = () => (
-  <SearchedMovieContext.Consumer>
-    {value => {
-      const {searchedMoviesData, getSearchedMoviesData, isSearchLoading} = value
+const SearchedMovies = () => {
+  const [pageNo, setPageNo] = useState(1)
 
-      const {searchedMoviesList, totalPages} = searchedMoviesData
-      const isSearchFound = searchedMoviesList.length > 0
+  const handlePageChange = (newPage, getSearchedMoviesData) => {
+    setPageNo(newPage)
+    getSearchedMoviesData(newPage)
+  }
 
-      const renderSearchContent = () => {
-        if (isSearchLoading) {
+  return (
+    <SearchedMovieContext.Consumer>
+      {value => {
+        const {
+          searchedMoviesData,
+          getSearchedMoviesData,
+          isSearchLoading,
+        } = value
+
+        const {searchedMoviesList, totalPages} = searchedMoviesData
+        const isSearchFound = searchedMoviesList.length > 0
+
+        const renderSearchContent = () => {
+          if (isSearchLoading) {
+            return (
+              <div className="loader-container">
+                <Loader type="Oval" color="#2091ea" height={40} />
+              </div>
+            )
+          }
+
+          if (isSearchFound) {
+            return (
+              <>
+                <MoviesList moviesData={searchedMoviesList} />
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={pageNo}
+                  onPageChange={newPage =>
+                    handlePageChange(newPage, getSearchedMoviesData)
+                  }
+                />
+              </>
+            )
+          }
+
           return (
-            <div className="loader-container">
-              <Loader type="Oval" color="#2091ea" height={40} />
+            <div className="empty-search-container">
+              <p>Well, that’s a plot twist — no movies found!</p>
+              <p>Try checking the title or browse our top picks instead.</p>
             </div>
           )
         }
 
-        if (isSearchFound) {
-          return (
-            <>
-              <MoviesList moviesData={searchedMoviesList} />
-              <Pagination
-                totalPages={totalPages}
-                apiCallBack={getSearchedMoviesData}
-              />
-            </>
-          )
-        }
-
         return (
-          <div className="empty-search-container">
-            <p>Well, that’s a plot twist — no movies found!</p>
-            <p>Try checking the title or browse our top picks instead.</p>
-          </div>
+          <>
+            <NavBar />
+            {renderSearchContent()}
+          </>
         )
-      }
-
-      return (
-        <>
-          <NavBar />
-          {renderSearchContent()}
-        </>
-      )
-    }}
-  </SearchedMovieContext.Consumer>
-)
+      }}
+    </SearchedMovieContext.Consumer>
+  )
+}
 
 export default SearchedMovies

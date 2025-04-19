@@ -10,12 +10,12 @@ const MoviesList = props => {
       {moviesData.map(eachMovie => (
         <li key={eachMovie.movieId}>
           <img
-            src={eachMovie.moviePosterImage}
+            src={eachMovie.moviePosterPath}
             alt={eachMovie.movieTitle}
             className="movie-poster-img"
           />
           <div className="movie-info-container">
-            <p className="movie-title">{eachMovie.movieTitle}</p>
+            <h1 className="movie-title">{eachMovie.movieTitle}</h1>
             <p className="movie-rating">Rating: {eachMovie.movieVoteAverage}</p>
             <Link
               to={`/movie/${eachMovie.movieId}`}

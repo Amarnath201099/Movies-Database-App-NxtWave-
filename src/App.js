@@ -26,7 +26,6 @@ const App = () => {
 
   const getSearchedMoviesData = async (pageNo = 1, searchedMovieName) => {
     setIsSearchLoading(true)
-    console.log(pageNo)
     const searchQuery = searchedMovieName ?? searchInput
 
     const apiKey = '683445102e37dd8e1342a6724dddcea9'
@@ -37,7 +36,7 @@ const App = () => {
 
     const updatedFormatData = data.results.map(eachMovie => ({
       movieId: eachMovie.id,
-      moviePosterImage: `https://image.tmdb.org/t/p/w500/${eachMovie.poster_path}`,
+      moviePosterPath: `https://image.tmdb.org/t/p/w500/${eachMovie.poster_path}`,
       movieTitle: eachMovie.original_title,
       movieVoteAverage: eachMovie.vote_average,
     }))
